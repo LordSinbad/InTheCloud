@@ -1,0 +1,379 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>附录二 公有云参考 &mdash; In the Cloud  文档</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="In the Cloud  文档" href="../index.html"/>
+        <link rel="next" title="附录三 PaaS/OpenShift" href="appendix03.html"/>
+        <link rel="prev" title="附录一 OpenStack概念、部署、与高级网络应用" href="appendix01.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> In the Cloud
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ch01.html">第一章 随便说些什么</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch02.html">第二章 一个可靠的存储后端</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch03.html">第三章 合适的虚拟化平台</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch04.html">第四章 数据抓取与机器学习算法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch05.html">第五章 数据处理平台</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix01.html">附录一 OpenStack概念、部署、与高级网络应用</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">附录二 公有云参考</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">虚拟机占用主机资源隔离</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cpu">CPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#io">磁盘IO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">设备</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">资源用度、计费</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#deltacloud-libcloud">DeltaCloud/Libcloud混合云</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#deltacloud">DeltaCloud示例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#libcloud">Libcloud示例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sdn-mininet">SDN学习/mininet</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="appendix03.html">附录三 PaaS/OpenShift</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix04.html">附录四  Docker 使用及自建repo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix05.html">附录五 常用功能运维工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix06.html">附录六 文档参考资源以及建议书单</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix07.html">待整理扩展内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exp.html">实践 构建先进的家居云</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="about.html">关于作者与文档</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">In the Cloud</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>附录二 公有云参考</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/posts/appendix02.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>附录二 公有云参考<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2>虚拟机占用主机资源隔离<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id3">
+<h3>网络<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<ol class="arabic simple">
+<li>使用 <strong>VLAN</strong> 、 <strong>openvswitch</strong> 进行隔离或限制。</li>
+<li>使用tc（Traffic Controller）命令进行速率的限制，许多虚拟化平台使用的都是它。</li>
+</ol>
+</div>
+<hr class="docutils" />
+<div class="section" id="cpu">
+<h3>CPU<a class="headerlink" href="#cpu" title="永久链接至标题">¶</a></h3>
+<ol class="arabic simple">
+<li>使用CPU Pin可以将特定虚拟核固定在指定物理核上。线程当作核来使用的话，每一个虚拟机使用一个核，之间互不干涉。</li>
+<li>使用Linux的 <a class="reference external" href="https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/Documentation/cgroups">Control Group</a> 来限制虚拟机对宿主机CPU的用度。</li>
+</ol>
+</div>
+<div class="section" id="io">
+<h3>磁盘IO<a class="headerlink" href="#io" title="永久链接至标题">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">更改内核磁盘IO调度方式：noop，cfq，deadline直接选择，参考 <a class="reference external" href="https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/Documentation/block">Linux Doc.</a> 。</p>
+</li>
+<li><p class="first">使用Linux的 <a class="reference external" href="https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/Documentation/cgroups">Control Group</a> 来限制虚拟机对宿主机设备的访问。</p>
+<blockquote>
+<div><p>使能cgroup，假如没有启动的话。</p>
+<div class="code highlight-python"><div class="highlight"><pre><span class="c"># mount tmpfs cgroup_root /sys/fs/cgroup</span>
+<span class="c"># mkdir /sys/fs/cgroup/blkio</span>
+<span class="c"># mount -t cgroup -o blkio none /sys/fs/cgroup/blkio</span>
+</pre></div>
+</div>
+<p>创建一个1 Mbps的IO限制组，X:Y 为MAJOR:MINOR。</p>
+<div class="code highlight-python"><div class="highlight"><pre><span class="c"># lsblk</span>
+<span class="c"># mkdir -p /sys/fs/cgroup/blkio/limit1M/</span>
+<span class="c"># echo &quot;8:0  1048576&quot; &gt; /sys/fs/cgroup/blkio/limit1M/blkio.throttle.write_bps_device</span>
+</pre></div>
+</div>
+<p>将虚拟机进程附加到限制组。</p>
+<div class="code highlight-python"><div class="highlight"><pre><span class="c"># echo $VM_PID &gt; /sys/fs/cgroup/blkio/limit1M/tasks</span>
+</pre></div>
+</div>
+<p>目前没有删除task功能，只能将它移到根组，或者是删除此组。</p>
+<div class="code highlight-python"><div class="highlight"><pre><span class="c"># echo $VM_PID &gt; /sys/fs/cgroup/blkio/tasks</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">更改qemu drive cache。</p>
+</li>
+</ol>
+</div>
+<div class="section" id="id5">
+<h3>设备<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p>使用Linux的 <a class="reference external" href="https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/Documentation/cgroups">Control Group</a> 来限制虚拟机对宿主机设备的访问。</p>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>资源用度、计费<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<p>系统报告主要是在scaling（测量）、charging（计费）时使用。</p>
+<p>在测量时可以使用平台提供的API、测量组件，综合利用nagios/Icinga，使用Django快速开发。</p>
+<p>oVirt可以参考ovirt-reports，OpenStack参考其Ceilometer。</p>
+<p>计费模块OpenStack可参考新浪云的 <a class="reference external" href="https://github.com/sinacloud/dough">dough项目</a> 。</p>
+</div>
+<div class="section" id="deltacloud-libcloud">
+<h2>DeltaCloud/Libcloud混合云<a class="headerlink" href="#deltacloud-libcloud" title="永久链接至标题">¶</a></h2>
+<p><strong>DeltaCloud支持：</strong></p>
+<p>arubacloud</p>
+<p>azure</p>
+<p>ec2</p>
+<p>rackspace</p>
+<p>terremark</p>
+<p>openstack</p>
+<p>fgcp</p>
+<p>eucalyptus</p>
+<p>digitalocean</p>
+<p>sbc</p>
+<p>mock</p>
+<p>condor</p>
+<p>rhevm</p>
+<p>google</p>
+<p>opennebula</p>
+<p>vsphere</p>
+<p>gogrid</p>
+<p>rimuhosting</p>
+<p><strong>Libcloud支持：</strong></p>
+<p>biquo</p>
+<p>PCextreme</p>
+<p>Azure Virtual machines</p>
+<p>Bluebox Blocks</p>
+<p>Brightbox</p>
+<p>CloudFrames</p>
+<p>CloudSigma (API v2.0)</p>
+<p>CloudStack</p>
+<p>DigitalOcean</p>
+<p>Dreamhost</p>
+<p>Amazon EC2</p>
+<p>Enomaly Elastic Computing Platform</p>
+<p>ElasticHosts</p>
+<p>Eucalyptus</p>
+<p>Exoscale</p>
+<p>Gandi</p>
+<p>Google Compute Engine</p>
+<p>GoGrid</p>
+<p>HostVirtual</p>
+<p>HP Public Cloud (Helion)</p>
+<p>IBM SmartCloud Enterprise</p>
+<p>Ikoula</p>
+<p>Joyent</p>
+<p>Kili Public Cloud</p>
+<p>KTUCloud</p>
+<p>Libvirt</p>
+<p>Linode</p>
+<p>NephoScale</p>
+<p>Nimbus</p>
+<p>Ninefold</p>
+<p>OpenNebula (v3.8)</p>
+<p>OpenStack</p>
+<p>Opsource</p>
+<p>Outscale INC</p>
+<p>Outscale SAS</p>
+<p>ProfitBricks</p>
+<p>Rackspace Cloud</p>
+<p>RimuHosting</p>
+<p>ServerLove</p>
+<p>skalicloud</p>
+<p>SoftLayer</p>
+<p>vCloud</p>
+<p>VCL</p>
+<p>vCloud</p>
+<p>Voxel VoxCLOUD</p>
+<p>vps.net</p>
+<p>VMware vSphere</p>
+<p>Vultr</p>
+<div class="section" id="deltacloud">
+<h3>DeltaCloud示例<a class="headerlink" href="#deltacloud" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="libcloud">
+<h3>Libcloud示例<a class="headerlink" href="#libcloud" title="永久链接至标题">¶</a></h3>
+</div>
+</div>
+<div class="section" id="sdn-mininet">
+<h2>SDN学习/mininet<a class="headerlink" href="#sdn-mininet" title="永久链接至标题">¶</a></h2>
+<p>SDN广泛用在内容加速、虚拟网络、监控等领域。</p>
+<p>关于SDN有许多学习工具： <a class="reference external" href="http://mininet.org">mininet</a> 、 <a class="reference external" href="https://github.com/noxrepo/pox">POX</a>  、 <a class="reference external" href="http://networkheresy.com/">Netwrok Heresy Blog</a> 。</p>
+<p>学习视频： <a class="reference external" href="https://www.coursera.org/course/sdn1">Coursera SDN</a> 。</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="appendix03.html" class="btn btn-neutral float-right" title="附录三 PaaS/OpenShift" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="appendix01.html" class="btn btn-neutral" title="附录一 OpenStack概念、部署、与高级网络应用" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; 版权所有 2014, lofyer.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

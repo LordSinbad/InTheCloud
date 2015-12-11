@@ -1,0 +1,279 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>实践 构建先进的家居云 &mdash; In the Cloud  文档</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="In the Cloud  文档" href="../index.html"/>
+        <link rel="next" title="关于作者与文档" href="about.html"/>
+        <link rel="prev" title="待整理扩展内容" href="appendix07.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> In the Cloud
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ch01.html">第一章 随便说些什么</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch02.html">第二章 一个可靠的存储后端</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch03.html">第三章 合适的虚拟化平台</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch04.html">第四章 数据抓取与机器学习算法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch05.html">第五章 数据处理平台</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix01.html">附录一 OpenStack概念、部署、与高级网络应用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix02.html">附录二 公有云参考</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix03.html">附录三 PaaS/OpenShift</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix04.html">附录四  Docker 使用及自建repo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix05.html">附录五 常用功能运维工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix06.html">附录六 文档参考资源以及建议书单</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix07.html">待整理扩展内容</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">实践 构建先进的家居云</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">系统架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">构建元素</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#os-x-server">OS X Server</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="about.html">关于作者与文档</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">In the Cloud</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>实践 构建先进的家居云</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/posts/exp.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>实践 构建先进的家居云<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>鉴于计算能力的摩尔定律以及家庭联网功能设备的爆发式增长，我们可以制造建立于各个家庭上的“云团”。</p>
+<p>先进性体现在哪呢？</p>
+<p>首先，我们的服务主要依托于虚拟化，数据流一定是SSL加密的，最大程度地与现有设备交互，服务可以对外限量使用。</p>
+<div class="section" id="id2">
+<h2>系统架构<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>架构这个东西从来就没离开过需求，那我们的需求是什么呢？</p>
+<ol class="arabic simple">
+<li>你是否有过文件无处安放的苦恼，装进电脑里怕系统重装后弄丢，装进移动存储怕插坏？</li>
+<li>你是否有一些本地照片、音乐、视频要给家人分享？</li>
+<li>你是否有一些本地照片、音乐、视频要给网络上的好友分享？</li>
+<li>你是否有一些重要文档，想要的时候却总也找不到？</li>
+<li>你是不是考虑过品牌家用NAS？</li>
+<li>你是不是不放心市场上的智能家居设备，担心它们窥探隐私（后门、被入侵）？</li>
+<li>你是否觉得让现有的家庭设备智能化很容易，但是自己没时间做？</li>
+<li>你是不是炒股？你的信息来源是不是非常分散？</li>
+<li>机器太多，怎么监控？</li>
+</ol>
+<ol class="arabic simple" start="0">
+<li>OK，我在扯淡。。</li>
+</ol>
+<p>OK，这些我们都可以分而治之，整个系统的骨架大概如下图所示。</p>
+<img alt="../_images/exp-01.png" class="align-center" src="../_images/exp-01.png" />
+</div>
+<div class="section" id="id3">
+<h2>构建元素<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>硬件： <strong>HP N54L</strong> 、 <strong>Raspberry Pi</strong> 、 <strong>Mac mini</strong> 、 <strong>电话语音卡</strong> 、 <strong>WRT54G（可选）</strong></p>
+<p>服务：网络认证、XMPP即时通信（服务群成员）、云存储、家庭知识库、家庭影像库、NAS（Apple TM兼容）、数据源（微博等）、DNS（解析内部服务器）、语音电话、语音识别控制、股票分析、clamav（防病毒）、zabbix监控</p>
+<p>软件：OpenLDAP、jabber、 、 <a class="reference external" href="https://www.seafile.com/home/">Seafile</a>  、 <a class="reference external" href="http://www.owncloud.org">owncloud</a> 、 <a class="reference external" href="http://xbmc.org/">XBMC（更名Kodi）</a> 、Wiki、Asterisk、 <a class="reference external" href="http://jasperproject.github.io/">jasper</a> 、 Hadoop 、 <a class="reference external" href="http://www.clamav.net/download.html">clamav</a> 、 AirPlay(Linux/OSX Server)</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p>不需要的东西</p>
+<p class="last">建立一个搜索引擎就三步：下载网页、建立索引、质量排序，对的，我们不需要自己建立，主要原因就是索引量太小。有兴趣的话可以查看 <a class="reference external" href="http://en.wikipedia.org/wiki/List_of_search_engines">http://en.wikipedia.org/wiki/List_of_search_engines</a> ，或者使用Nutch、Lucene或者Sphinx来搭建自己的搜索引擎。</p>
+</div>
+</div>
+<div class="section" id="os-x-server">
+<h2>OS X Server<a class="headerlink" href="#os-x-server" title="永久链接至标题">¶</a></h2>
+<p>鉴于OS X Server安装服务非常方便，这里就针对它的常用服务进行讲解。</p>
+<ul class="simple">
+<li>Time Machine： 给Mac机器提供时光机器服务，可以很方便地对Mac进行备份与恢复，一定要保证磁盘划分合理。</li>
+<li>VPN：可以创建基于LT2P或者PPTP的VPN服务器。</li>
+<li>信息：提供基于XMPP的Jabber即时消息服务。</li>
+<li>Wiki：可以创建博客以及Wiki服务器。</li>
+<li>网站：可提供PHP或者Python的Web服务。 OS X有一个 <a class="reference external" href="https://github.com/st3fan/osx-10.9/blob/master/apache-786/webpromotion.rb">webpromotion</a> 命令，用于更改桌面配置，以优化web服务体验。</li>
+<li>文件共享：可以通过Samba、AFP、Webdav方式共享文件或目录。</li>
+<li>FTP：提供FTP服务。</li>
+<li>通讯录：可提供CardDav格式或者LDAP内的通讯录，适用于大多数移动设备。</li>
+<li>NetInstall：提供网络安装OS X的服务，一般用于重装或者恢复系统。</li>
+<li>Open Directory：提供LDAP服务，包含Kerberos认证。</li>
+<li>DNS：用于内部DNS服务。</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p>家庭局域网DNS服务器</p>
+<p class="last">家庭局域网中的DNS服务器有时还是很有必要的，可以使用RPi、MacMini（或者其他合适的路由设备）作为DNS转发，配合 <a class="reference external" href="http://www.thekelleys.org.uk/dnsmasq/docs/dnsmasq.conf.example">dnsmasq</a> 快速部署DNS。</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="about.html" class="btn btn-neutral float-right" title="关于作者与文档" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="appendix07.html" class="btn btn-neutral" title="待整理扩展内容" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; 版权所有 2014, lofyer.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

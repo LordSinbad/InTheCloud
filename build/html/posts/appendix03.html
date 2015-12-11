@@ -1,0 +1,232 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>附录三 PaaS/OpenShift &mdash; In the Cloud  文档</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="In the Cloud  文档" href="../index.html"/>
+        <link rel="next" title="附录四 Docker 使用及自建repo" href="appendix04.html"/>
+        <link rel="prev" title="附录二 公有云参考" href="appendix02.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> In the Cloud
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ch01.html">第一章 随便说些什么</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch02.html">第二章 一个可靠的存储后端</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch03.html">第三章 合适的虚拟化平台</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch04.html">第四章 数据抓取与机器学习算法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch05.html">第五章 数据处理平台</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix01.html">附录一 OpenStack概念、部署、与高级网络应用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix02.html">附录二 公有云参考</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">附录三 PaaS/OpenShift</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">这是什么</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">当前的形势</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="appendix04.html">附录四  Docker 使用及自建repo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix05.html">附录五 常用功能运维工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix06.html">附录六 文档参考资源以及建议书单</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix07.html">待整理扩展内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exp.html">实践 构建先进的家居云</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="about.html">关于作者与文档</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">In the Cloud</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>附录三 PaaS/OpenShift</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/posts/appendix03.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="paas-openshift">
+<h1>附录三 PaaS/OpenShift<a class="headerlink" href="#paas-openshift" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>这是什么<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>设想，你有一个公网主机，上面配置了Apache/Nginx，同时上面你装的有Ruby、JBoss、Python等环境，平时你用它作你自己的应用发布。某一天，你的朋友说他也有一个Django应用要发布，问你要一个环境，你就在你的主机上配置了VirtualHost来解析xiaoli.myhost.com到/var/www/django/xiaoli这个目录下，然后他就请你去吃个烤羊腿了。后来，又一个朋友问你要这样的环境，但是这次是php，你就把/var/www/html/php/zhangsan这个目录给他了，这次请你吃麻辣烫。再后来，问你要环境的朋友越来越多，你就又搞了一个主机，同时配置了一个代理服务来解析不同的域名到某个主机的目录下。某天你在公交车上的时候就想了，我为什么不写一个应用让他们自己注册选择语言环境和域名呢？于是，你就开始了，花了两天时间终于搞定。用的人越来越多，你吃得也也越来越胖。。</p>
+<p>这样一个应用，就是PaaS的原型。</p>
+</div>
+<div class="section" id="id2">
+<h2>当前的形势<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>面对国内社交APP微信的火爆，对Web服务器的需求日益增长，同样，开发者的需求环境也有所差异，而面对这种差异，一个更加灵活的平台就出现了，国内比如SinaAPP，国外比如Google APPEngine，Redhat OpenShift，Amazon AWS。</p>
+<p>OK，不多说了，下面开始试验OpenShift的服务器搭建及上线。</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="appendix04.html" class="btn btn-neutral float-right" title="附录四 Docker 使用及自建repo" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="appendix02.html" class="btn btn-neutral" title="附录二 公有云参考" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; 版权所有 2014, lofyer.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

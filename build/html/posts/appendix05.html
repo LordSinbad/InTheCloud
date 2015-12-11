@@ -1,0 +1,342 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>附录五 常用功能运维工具 &mdash; In the Cloud  文档</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="In the Cloud  文档" href="../index.html"/>
+        <link rel="next" title="附录六 文档参考资源以及建议书单" href="appendix06.html"/>
+        <link rel="prev" title="附录四 Docker 使用及自建repo" href="appendix04.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> In the Cloud
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ch01.html">第一章 随便说些什么</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch02.html">第二章 一个可靠的存储后端</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch03.html">第三章 合适的虚拟化平台</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch04.html">第四章 数据抓取与机器学习算法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch05.html">第五章 数据处理平台</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix01.html">附录一 OpenStack概念、部署、与高级网络应用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix02.html">附录二 公有云参考</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix03.html">附录三 PaaS/OpenShift</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix04.html">附录四  Docker 使用及自建repo</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">附录五 常用功能运维工具</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#foreman">Foreman 部署指导</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#katello">Katello 部署指导</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">数据恢复工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">常用性能测量及优化工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#haproxy">HAProxy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">常用运维工具</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#monit">Monit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#munin">Munin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cacti">Cacti</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ganglia">Ganglia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#zabbix">zabbix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nagios">nagios</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">foreman</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#chef">chef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#puppet">puppet</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="appendix06.html">附录六 文档参考资源以及建议书单</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix07.html">待整理扩展内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exp.html">实践 构建先进的家居云</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="about.html">关于作者与文档</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">In the Cloud</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>附录五 常用功能运维工具</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/posts/appendix05.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>附录五 常用功能运维工具<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="foreman">
+<h2>Foreman 部署指导<a class="headerlink" href="#foreman" title="永久链接至标题">¶</a></h2>
+</div>
+<div class="section" id="katello">
+<h2>Katello 部署指导<a class="headerlink" href="#katello" title="永久链接至标题">¶</a></h2>
+</div>
+<div class="section" id="id2">
+<h2>数据恢复工具<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>extundelete</p>
+</div>
+<div class="section" id="id3">
+<h2>常用性能测量及优化工具<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li>优化</li>
+</ul>
+<img alt="../_images/apx01-09.jpg" src="../_images/apx01-09.jpg" />
+<ul class="simple">
+<li>监视</li>
+</ul>
+<img alt="../_images/apx01-10.jpg" src="../_images/apx01-10.jpg" />
+<ul class="simple">
+<li>测试</li>
+</ul>
+<img alt="../_images/apx01-11.jpg" src="../_images/apx01-11.jpg" />
+<p>all in one - pip install glances</p>
+<p>另外针对qemu/libvirt相关的测试工具，可以参考 <a class="reference external" href="https://github.com/autotest/virt-test">virt-test</a> ，当然，仅作参考。</p>
+</div>
+<div class="section" id="haproxy">
+<h2>HAProxy<a class="headerlink" href="#haproxy" title="永久链接至标题">¶</a></h2>
+<p>没错，我就是要把这个东西单列出来讲，因为你可以用这个东西来做几乎全部应用的HA或者LoadBalancer， <cite>这里是配置说明 &lt;http://www.haproxy.org/download/1.4/doc/configuration.txt&gt;</cite> 。</p>
+<p>代理http:</p>
+<div class="code highlight-python"><div class="highlight"><pre>...
+
+backend webbackend
+    balance roundrobin
+    server web1 192.168.0.130:80 check
+
+frontend http
+    bind *:80
+    mode http
+    default_backend webbackend
+
+listen  stats :8080
+    balance
+    mode http
+    stats enable
+    stats auth me:password
+</pre></div>
+</div>
+<p>代理tcp:</p>
+<div class="code highlight-python"><div class="highlight"><pre>listen *:3306
+    mode tcp
+    option tcplog
+    balance roundrobin
+    server smtp 192.168.0.1:3306 check
+    server smtp1 192.168.0.2:3306 check
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>常用运维工具<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<div class="section" id="monit">
+<h3>Monit<a class="headerlink" href="#monit" title="永久链接至标题">¶</a></h3>
+<p>小型监控工具，不推荐使用。</p>
+</div>
+<div class="section" id="munin">
+<h3>Munin<a class="headerlink" href="#munin" title="永久链接至标题">¶</a></h3>
+<p>轻量级的监控工具。</p>
+</div>
+<div class="section" id="cacti">
+<h3>Cacti<a class="headerlink" href="#cacti" title="永久链接至标题">¶</a></h3>
+<p>与Zabbix在某些方面很像。</p>
+</div>
+<div class="section" id="ganglia">
+<h3>Ganglia<a class="headerlink" href="#ganglia" title="永久链接至标题">¶</a></h3>
+<p>比较专业的监控工具，并有一款专门针对虚拟机的应用。
+<a class="reference external" href="http://blog.sflow.com/2012/01/using-ganglia-to-monitor-virtual.html">http://blog.sflow.com/2012/01/using-ganglia-to-monitor-virtual.html</a></p>
+</div>
+<div class="section" id="zabbix">
+<h3>zabbix<a class="headerlink" href="#zabbix" title="永久链接至标题">¶</a></h3>
+<p>类似Nagios，不过图形绘制很强，在一键脚本中提供安装。</p>
+<p><a class="reference external" href="http://www.zabbix.com/third_party_tools.php">移动客户端下载</a>  。</p>
+<p>关于zabbix的更多介绍可以参考 <a class="reference external" href="http://www.zhihu.com/question/19973178">itnihao的相关著作</a> 。</p>
+</div>
+<div class="section" id="nagios">
+<h3>nagios<a class="headerlink" href="#nagios" title="永久链接至标题">¶</a></h3>
+<p>使用UI Plugin可以将在oVirt管理界面中查看Nagios监控状态，可参考 <a class="reference external" href="http://www.ovirt.org/Features/UIPlugins#oVirt_Monitoring_UI_Plugin">oVirt_Monitoring_UI_Plugin</a> 以及 <a class="reference external" href="http://www.ovirt.org/Features/Nagios_Integration">Nagios_Intergration</a> 。</p>
+</div>
+<div class="section" id="id6">
+<h3>foreman<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p>使用Foreman的主要目的是更方便地部署宿主机以及创建虚拟机。</p>
+<p>参考 <a class="reference external" href="http://www.ovirt.org/Features/ForemanIntegration">ForemanIntegration</a> 、 <a class="reference external" href="https://github.com/oourfali/foreman_ovirt">foreman_ovirt</a> 以及UIPlugin相关内容。</p>
+</div>
+<div class="section" id="chef">
+<h3>chef<a class="headerlink" href="#chef" title="永久链接至标题">¶</a></h3>
+<p>简单理解为一些列安装脚本（cookbook）。</p>
+<p>访问 <a class="reference external" href="http://gettingstartedwithchef.com/first-steps-with-chef.html">http://gettingstartedwithchef.com/</a> 开始快速上手学习。</p>
+<p><a class="reference external" href="https://supermarket.getchef.com/cookbooks-directory">获取更多cookbook</a> 。</p>
+</div>
+<div class="section" id="puppet">
+<h3>puppet<a class="headerlink" href="#puppet" title="永久链接至标题">¶</a></h3>
+<p>功能上与chef类似，但是影响力更大。</p>
+<p><a class="reference external" href="https://puppetlabs.com/download-learning-vm">下载虚拟机</a> 并按照里面的教程来快速上手。</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="appendix06.html" class="btn btn-neutral float-right" title="附录六 文档参考资源以及建议书单" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="appendix04.html" class="btn btn-neutral" title="附录四 Docker 使用及自建repo" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; 版权所有 2014, lofyer.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,290 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>附录四 Docker 使用及自建repo &mdash; In the Cloud  文档</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="In the Cloud  文档" href="../index.html"/>
+        <link rel="next" title="附录五 常用功能运维工具" href="appendix05.html"/>
+        <link rel="prev" title="附录三 PaaS/OpenShift" href="appendix03.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> In the Cloud
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ch01.html">第一章 随便说些什么</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch02.html">第二章 一个可靠的存储后端</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch03.html">第三章 合适的虚拟化平台</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch04.html">第四章 数据抓取与机器学习算法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch05.html">第五章 数据处理平台</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix01.html">附录一 OpenStack概念、部署、与高级网络应用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix02.html">附录二 公有云参考</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix03.html">附录三 PaaS/OpenShift</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">附录四  Docker 使用及自建repo</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">镜像操作</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#registry">Registry操作</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="appendix05.html">附录五 常用功能运维工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix06.html">附录六 文档参考资源以及建议书单</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix07.html">待整理扩展内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exp.html">实践 构建先进的家居云</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="about.html">关于作者与文档</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">In the Cloud</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>附录四  Docker 使用及自建repo</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/posts/appendix04.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="docker-repo">
+<h1>附录四  Docker 使用及自建repo<a class="headerlink" href="#docker-repo" title="永久链接至标题">¶</a></h1>
+<p>Docker已经越来越流行了（IaaS平台开始支持它，PaaS平台也开始支持它），不介绍它总感觉过不去。</p>
+<p>它是基于LXC的容器类型虚拟化技术，从实现上说更类似于chroot，用户空间的信息被很好隔离的同时，又实现了网络相关的分离。它取代LXC的原因，我想是因为其REPO非常丰富，操作上类似git。</p>
+<p>另外，它有提供Windows/MacOSX的客户端 boot2docker。</p>
+<p>中文入门手册请参考 <a class="reference external" href="http://www.widuu.com/chinese_docker/">Docker中文指南</a> ，另外它有一个WebUI <a class="reference external" href="https://github.com/shipyard/shipyard">shipyard</a> 。</p>
+<p>官方repo <a class="reference external" href="https://registry.hub.docker.com/">https://registry.hub.docker.com/</a> 。</p>
+<div class="section" id="id1">
+<h2>镜像操作<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>运行简单命令</p>
+<div class="code highlight-python"><div class="highlight"><pre>docker run ubuntu /bin/echo &quot;Hello world!&quot;
+</pre></div>
+</div>
+<p>运行交互shell</p>
+<div class="code highlight-python"><div class="highlight"><pre>docker run -t -i ubuntu /bin/bash
+</pre></div>
+</div>
+<p>运行Django程序</p>
+<div class="code highlight-python"><div class="highlight"><pre>docker run -d -P training/webapp python app.py
+</pre></div>
+</div>
+<p>获取container信息</p>
+<div class="code highlight-python"><div class="highlight"><pre>docker ps
+</pre></div>
+</div>
+<p>获取container内部信息</p>
+<div class="code highlight-python"><div class="highlight"><pre>docker inspect -f &#39;{{ .NetworkSettings.IPAddress }}&#39; my_container
+</pre></div>
+</div>
+<p>获取container历史</p>
+<div class="code highlight-python"><div class="highlight"><pre>docker log my_container
+</pre></div>
+</div>
+<p>commit/save/load</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p>保存</p>
+<p class="last">只有commit，对docker做的修改才会保存，形如docker run centos yum install -y nmap不会保存。</p>
+</div>
+<div class="code highlight-python"><div class="highlight"><pre>docker images
+docker commit $image_id$ myimage
+docker save myimage &gt; myimage.tar
+docker load &lt; myimage.tar
+</pre></div>
+</div>
+</div>
+<div class="section" id="registry">
+<h2>Registry操作<a class="headerlink" href="#registry" title="永久链接至标题">¶</a></h2>
+<p>登录，默认为DockerHub</p>
+<div class="code highlight-python"><div class="highlight"><pre>docker login
+</pre></div>
+</div>
+<p>创建Registry</p>
+<p>参考 <a class="reference external" href="https://www.digitalocean.com/community/tutorials/how-to-set-up-a-private-docker-registry-on-ubuntu-14-04">https://www.digitalocean.com/community/tutorials/how-to-set-up-a-private-docker-registry-on-ubuntu-14-04</a> 以及 <a class="reference external" href="http://blog.docker.com/2013/07/how-to-use-your-own-registry/">http://blog.docker.com/2013/07/how-to-use-your-own-registry/</a> 。</p>
+<div class="code highlight-python"><div class="highlight"><pre># 获取docker-registry，从github或者直接 pip install docker-registry
+# git clone https://github.com/dotcloud/docker-registry.git
+# cd docker-registry
+# cp config_sample.yml config.yml
+# pip install -r requirements.txt
+# gunicorn --access-logfile - --log-level debug --debug
+-b 0.0.0.0:5000 -w 1 wsgi:application
+</pre></div>
+</div>
+<p>push/pull</p>
+<div class="code highlight-python"><div class="highlight"><pre><span class="c"># docker pull ubuntu</span>
+<span class="c"># docker tag ubuntu localhost:5000/ubuntu</span>
+<span class="c"># docker push localhost:5000/ubuntu</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="appendix05.html" class="btn btn-neutral float-right" title="附录五 常用功能运维工具" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="appendix03.html" class="btn btn-neutral" title="附录三 PaaS/OpenShift" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; 版权所有 2014, lofyer.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
